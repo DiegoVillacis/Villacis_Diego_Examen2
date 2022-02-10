@@ -78,7 +78,7 @@ class LoginPage extends StatelessWidget {
                             Buttons.GoogleDark,
                             text: "Hotmail",
                             onPressed: () async {
-                              registerUser(context);
+                              registerUserVFDI(context);
                             },
                           ),
                         )

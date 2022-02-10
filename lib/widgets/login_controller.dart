@@ -56,7 +56,7 @@ class LoginController extends GetxController {
 }
 
 
-void registerUser(BuildContext context) async {
+void registerUserVFDI(BuildContext context) async {
       Navigator.of(context).push(new MaterialPageRoute(
           builder: (BuildContext context) => RegisterLoginPage()));
 }

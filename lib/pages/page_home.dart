@@ -187,6 +187,14 @@ class _MyHomePageState extends State<MyHomePage> {
                                     SizedBox(
                                       height: 15,
                                     ),
+                                    Text(
+                                      'Cantidad: ${_productsModel[index].maxQuatity}',
+                                      textAlign: TextAlign.center,
+                                      style: TextStyle(fontSize: 10.0),
+                                    ),
+                                    SizedBox(
+                                      height: 15,
+                                    ),
                                     Row(
                                       mainAxisAlignment:
                                           MainAxisAlignment.spaceBetween,
