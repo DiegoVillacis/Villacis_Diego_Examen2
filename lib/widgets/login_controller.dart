@@ -1,4 +1,5 @@
 import 'package:app_sistema_ventas/pages/page_home.dart';
+import 'package:app_sistema_ventas/pages/register_login_page.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -54,37 +55,12 @@ class LoginController extends GetxController {
   }
 }
 
-/*
-void signInWithGoogle() async {
-    try {
-      UserCredential userCredential;
-  
-      final GoogleSignInAccount? googleUser = await GoogleSignIn().signIn();
-      final GoogleSignInAuthentication? googleAuth = 
-        await googleUser?.authentication;
-      final OAuthCredential googleAuthCredential = 
-      GoogleAuthProvider.credential(
-        accessToken: googleAuth?.accessToken,
-        idToken: googleAuth?.idToken,
-      );
 
-        userCredential = await _auth.signInWithCredential(googleAuthCredential);
-  
-      final user = userCredential.user;
-      Get.snackbar('Holas', 'Sign In ${user?.uid} with Google');
-      print('Ingreso Bien');
-      Future.delayed(
-          Duration(seconds: 2),
-          (){
-            Get.toNamed("/foodpage");
-          },
-      );
-    } catch (e) {
-      print(e);
-      Get.snackbar('Fallo', 'Failed to sign in with Google: $e',
-      snackPosition: SnackPosition.BOTTOM);
-    }
-    }
-*/
+void registerUser(BuildContext context) async {
+      Navigator.of(context).push(new MaterialPageRoute(
+          builder: (BuildContext context) => RegisterLoginPage()));
+}
+
     
+
   

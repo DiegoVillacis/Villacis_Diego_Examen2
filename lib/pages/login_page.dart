@@ -76,9 +76,9 @@ class LoginPage extends StatelessWidget {
                           alignment: Alignment.center,
                           child: SignInButton(
                             Buttons.GoogleDark,
-                            text: "Google",
+                            text: "Hotmail",
                             onPressed: () async {
-                              //signInWithGoogle();
+                              registerUser(context);
                             },
                           ),
                         )
