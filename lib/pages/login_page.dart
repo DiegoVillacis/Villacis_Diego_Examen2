@@ -75,7 +75,7 @@ class LoginPage extends StatelessWidget {
                           padding: const EdgeInsets.only(top: 16.0),
                           alignment: Alignment.center,
                           child: SignInButton(
-                            Buttons.GoogleDark,
+                            Buttons.Email,
                             text: "VFDI - Registarse",
                             onPressed: () async {
                               registerUserVFDI(context);

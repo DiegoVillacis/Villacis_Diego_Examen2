@@ -34,25 +34,24 @@ class RegisterLoginPage extends StatelessWidget {
                       decoration: const InputDecoration(labelText: 'Contraseña'),
                       /*inputFormatters: <TextInputFormatter>[
                         FilteringTextInputFormatter.allow(
-                          RegExp(r'^(?=(?:.*?[AZ]){2})  ')),
+                          RegExp(r'^(?=.{10,}$)(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*\W).*$')),
                       ],*/
                       validator: (value){
 
-                        if(value!.isEmpty || !RegExp(r'^(?=(?:.*?[AZ]){2})').hasMatch(value!)){
+                        if(value!.isEmpty || !RegExp(r'^(?=.{10,}$)(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*\W).*$').hasMatch(value)){
                           return "Correcto";
                         }else{
-                          return null;
+                          return "Incorrecto";
                         }
-                          
-                        
-                      }
+                      },
+                      
                     ),
 
                     TextFormField(
                       controller: _.cedulaControllerVFDI,
                       decoration: const InputDecoration(labelText: 'Cedula'),
                       validator: (String? value) {
-                        if (value == "") {
+                        if (value!.isEmpty) {
                           return 'Please enter some text';
                         }
                         return null;

@@ -15,6 +15,7 @@ class LoginRegisterController extends GetxController{
   bool? success;
   String? userEmail = '';
 
+
   void dispose(){
 
     emailController.dispose();

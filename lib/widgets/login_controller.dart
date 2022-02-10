@@ -57,8 +57,15 @@ class LoginController extends GetxController {
 
 
 void registerUserVFDI(BuildContext context) async {
+
+  try{
       Navigator.of(context).push(new MaterialPageRoute(
           builder: (BuildContext context) => RegisterLoginPage()));
+
+  } catch (e) {
+      Get.snackbar('Fallo', 'Ingreso Incorrecto!',
+          snackPosition: SnackPosition.BOTTOM);
+    }
 }
 
 
