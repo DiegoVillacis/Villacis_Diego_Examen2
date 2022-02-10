@@ -14,12 +14,14 @@ class LoginRegisterController extends GetxController{
 
   bool? success;
   String? userEmail = '';
+  String? cedulaVFDI = '';
 
 
   void dispose(){
 
     emailController.dispose();
     passwordController.dispose();
+    cedulaControllerVFDI.dispose();
     super.dispose();
   }
 
@@ -27,6 +29,7 @@ class LoginRegisterController extends GetxController{
     final User? user = (await _auth.createUserWithEmailAndPassword(
       email: emailController.text,
       password: passwordController.text,
+      //cedulaDIVF: cedulaControllerVFDI.text,
     ))
         .user;
     if (user != null) {

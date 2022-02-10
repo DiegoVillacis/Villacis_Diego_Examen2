@@ -1,5 +1,7 @@
+import 'package:app_sistema_ventas/models/user_modelVFDI.dart';
 import 'package:app_sistema_ventas/pages/page_home.dart';
 import 'package:app_sistema_ventas/pages/register_login_page.dart';
+import 'package:app_sistema_ventas/services/user_serviceVFDI.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -12,29 +14,26 @@ class LoginController extends GetxController {
   final emailController = TextEditingController();
   final passwordController = TextEditingController();
 
-  void signInWithEmailAndPassword(BuildContext context) async {
-    try {
-      Navigator.of(context).push(new MaterialPageRoute(
-          builder: (BuildContext context) => MyHomePage(title: 'Inicio')));
-      /*
-      final User user = (await _auth.signInWithEmailAndPassword(
-        email: emailController.text,
-        password: passwordController.text,
-      ))
-          .user!;
-      Get.snackbar('Hola', 'Ingreso Exitoso!');
-      Future.delayed(
-        Duration(seconds: 2),
-        () {
-          print('Ingreso Correcto');
-        },
-      );
-      */
-    } catch (e) {
-      Get.snackbar('Fallo', 'Ingreso Incorrecto!',
-          snackPosition: SnackPosition.BOTTOM);
+
+  ServiceUser serviceUser = new ServiceUser();
+  List<userModelVFDI>? Users = [];
+
+  void signInWithEmailAndPassword(BuildContext context) {
+    String user = emailController.text.toString();
+    String password = passwordController.text.toString();
+    serviceUser.initialiase();
+    serviceUser
+        .userVFDI(user)
+        .then((value) => {Users = value.cast<userModelVFDI>()});
+    if (Users!.isNotEmpty) {
+      if (Users![0].contrase == password) {
+        Navigator.of(context).push(new MaterialPageRoute(
+            builder: (BuildContext context) => MyHomePage(title: 'Inicio')));
+      }
     }
   }
+
+  
 
   void _signOut() async {
     await _auth.signOut();
@@ -67,6 +66,9 @@ void registerUserVFDI(BuildContext context) async {
           snackPosition: SnackPosition.BOTTOM);
     }
 }
+
+
+
 
 
 

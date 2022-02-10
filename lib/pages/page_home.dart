@@ -336,6 +336,14 @@ class _MyHomePageState extends State<MyHomePage> {
                             ),
                           ),
                         ),
+                        Text(
+                                      'VFDIStock : ${_productsModel[index].maxQuantity}',
+                                      textAlign: TextAlign.center,
+                                      style: TextStyle(fontSize: 10.0),
+                                    ),
+                                    SizedBox(
+                                      height: 15,
+                                    ),
                       ],
                     )
                   ],
