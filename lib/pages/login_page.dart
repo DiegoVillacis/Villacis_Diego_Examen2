@@ -49,7 +49,7 @@ class LoginPage extends StatelessWidget {
                           controller: controller.passwordController,
                           keyboardType: TextInputType.number,
                           inputFormatters: <TextInputFormatter>[
-                            FilteringTextInputFormatter.allow(RegExp(r'[0-9]')),
+                            FilteringTextInputFormatter.allow(RegExp(r'^(?=(?:.\d){2})(?=(?:.[A-Z]){1})(?=(?:.*[a-z]){1})\S{6,10}$')),
                           ],
                           decoration:
                               const InputDecoration(labelText: 'Password'),
@@ -65,7 +65,7 @@ class LoginPage extends StatelessWidget {
                           alignment: Alignment.center,
                           child: SignInButton(
                             Buttons.Email,
-                            text: "Sign In",
+                            text: "VFDI - Iniciar Sesion",
                             onPressed: () async {
                               _.signInWithEmailAndPassword(context);
                             },
@@ -76,7 +76,7 @@ class LoginPage extends StatelessWidget {
                           alignment: Alignment.center,
                           child: SignInButton(
                             Buttons.GoogleDark,
-                            text: "VFDIHotmail",
+                            text: "VFDI - Hotmail",
                             onPressed: () async {
                               registerUserVFDI(context);
                             },
