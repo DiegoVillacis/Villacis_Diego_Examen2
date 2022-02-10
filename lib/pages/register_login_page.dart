@@ -63,7 +63,7 @@ class RegisterLoginPage extends StatelessWidget {
                       child: RaisedButton(
                         child: Text('Register'),
                         onPressed: () async {
-                          _.register();
+                          //_.register();
                         },
                       ),
                     ),

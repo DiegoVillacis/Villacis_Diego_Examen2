@@ -1,3 +1,4 @@
+import 'package:app_sistema_ventas/models/user_modelVFDI.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -25,24 +26,17 @@ class LoginRegisterController extends GetxController{
     super.dispose();
   }
 
-  void register() async {
-    final User? user = (await _auth.createUserWithEmailAndPassword(
+  Future<SignUpResponse> register(userModelVFDI us) async {
+    try{
+    final UserCredential = await _auth.createUserWithEmailAndPassword(
+      
       email: emailController.text,
       password: passwordController.text,
       //cedulaDIVF: cedulaControllerVFDI.text,
-    ))
-        .user;
-    if (user != null) {
-        success = true;
-        print ('Registro OK');
-        Future.delayed(
-          Duration(seconds: 2),
-          (){
-            Get.toNamed("/foodpage");
-          },
-        );
-    } else {
-      success = false;
-    }
+    );
+    return SignUpResponse(null, UserCredential.user!);
+  }on FirebaseAuthException catch (e) {
+    return SignUpResponse(e.code, null);
+  }
   }
 }

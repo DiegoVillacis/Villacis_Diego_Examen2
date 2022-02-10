@@ -1,3 +1,5 @@
+import 'package:firebase_auth/firebase_auth.dart';
+
 class userModelVFDI {
   var id;
   String usuario = '';
@@ -15,4 +17,11 @@ class userModelVFDI {
     this.contrase = contrase;
     this.cedula = cedula;
   }
+}
+
+class SignUpResponse {
+  final String? error;
+  final User? user;
+
+  SignUpResponse(this.error, this.user);
 }
