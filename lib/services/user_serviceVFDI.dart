@@ -32,7 +32,7 @@ class ServiceUser {
       }
       //print(prods);
     } catch (e) {
-      print("Lo siento :C");
+      print("Error");
     }
     return docs;
   }
