@@ -33,7 +33,7 @@ class RegisterLoginPage extends StatelessWidget {
                       keyboardType: TextInputType.text,
                       inputFormatters: <TextInputFormatter>[
                         FilteringTextInputFormatter.allow(
-                          RegExp(r'^\w+[\w-\.]*\@\w+((-\w+)|(\w*))\.[a-z]{2,3}$')),
+                          RegExp(r'^(?=.[a-z])(?=.[A-Z])(?=.\d)(?=.[@$!%?&])[A-Za-z\d@$!%?&]{8,10}$')),
                       ],
                       decoration: const InputDecoration(labelText: 'Password'),
                       validator: (String? value) {
@@ -42,19 +42,18 @@ class RegisterLoginPage extends StatelessWidget {
                         }
                         return null;
                       },
-                      obscureText: true,
+                      obscureText: false,
                     ),
+
                     TextFormField(
                       controller: _.cedulaControllerVFDI,
-                      keyboardType: TextInputType.number,
                       decoration: const InputDecoration(labelText: 'Cedula'),
                       validator: (String? value) {
-                        if (value == null || value.isEmpty) {
+                        if (value!.isEmpty) {
                           return 'Please enter some text';
                         }
                         return null;
                       },
-                      obscureText: true,
                     ),
                     Container(
                       padding: const EdgeInsets.only(top: 16.0),
