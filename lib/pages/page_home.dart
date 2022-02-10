@@ -188,7 +188,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                       height: 15,
                                     ),
                                     Text(
-                                      'VFDIStock : ${_productsModel[index].maxQuatity}',
+                                      'VFDIStock : ${_productsModel[index].maxQuantity}',
                                       textAlign: TextAlign.center,
                                       style: TextStyle(fontSize: 10.0),
                                     ),
