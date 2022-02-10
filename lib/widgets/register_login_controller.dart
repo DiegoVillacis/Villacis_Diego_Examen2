@@ -26,7 +26,7 @@ class LoginRegisterController extends GetxController{
     super.dispose();
   }
 
-  Future<SignUpResponse> register(userModelVFDI us) async {
+  Future<SignUpResponse> register() async {
     try{
     final UserCredential = await _auth.createUserWithEmailAndPassword(
       

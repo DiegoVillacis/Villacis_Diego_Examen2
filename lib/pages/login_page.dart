@@ -36,6 +36,18 @@ class LoginPage extends StatelessWidget {
                         SizedBox(
                           height: 50,
                         ),
+
+                        Container(
+                          child: const Text(
+                            'Email de prueba: ejemplo@uta.edu.com - Hola#1',
+                            style: TextStyle(fontWeight: FontWeight.bold),
+                          ),
+                          alignment: Alignment.center,
+                        ),
+                        SizedBox(
+                          height: 50,
+                        ),
+
                         TextFormField(
                           controller: controller.emailController,
                           decoration: const InputDecoration(labelText: 'Email'),

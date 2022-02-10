@@ -38,7 +38,7 @@ class RegisterLoginPage extends StatelessWidget {
                       ],*/
                       validator: (value){
 
-                        if(value!.isEmpty || !RegExp(r'^(?=.{10,}$)(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*\W).*$').hasMatch(value)){
+                        if(value!.isEmpty || RegExp(r'^(?=.{10,}$)(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*\W).*$').hasMatch(value)){
                           return "Correcto";
                         }else{
                           return "Incorrecto";
@@ -63,7 +63,7 @@ class RegisterLoginPage extends StatelessWidget {
                       child: RaisedButton(
                         child: Text('Register'),
                         onPressed: () async {
-                          //_.register();
+                          _.register();
                         },
                       ),
                     ),
