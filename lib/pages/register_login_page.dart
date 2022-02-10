@@ -32,17 +32,20 @@ class RegisterLoginPage extends StatelessWidget {
                       controller: _.passwordController,
                       keyboardType: TextInputType.text,
                       decoration: const InputDecoration(labelText: 'Contraseña'),
-                      inputFormatters: <TextInputFormatter>[
+                      /*inputFormatters: <TextInputFormatter>[
                         FilteringTextInputFormatter.allow(
-                          RegExp(r'^(?=.{10,}$)(?=(?:.*?[A-Z]){2})(?=.*?[a-z])(?=(?:.*?[0-9]){2}).*$')),
-                      ],
-                      validator: (String? value) {
-                        if (value == null || value.isEmpty) {
-                          return 'Please enter some text';
+                          RegExp(r'^(?=(?:.*?[AZ]){2})  ')),
+                      ],*/
+                      validator: (value){
+
+                        if(value!.isEmpty || !RegExp(r'^(?=(?:.*?[AZ]){2})').hasMatch(value!)){
+                          return "Correcto";
+                        }else{
+                          return null;
                         }
-                        return null;
-                      },
-                      obscureText: false,
+                          
+                        
+                      }
                     ),
 
                     TextFormField(

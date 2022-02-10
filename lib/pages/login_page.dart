@@ -76,7 +76,7 @@ class LoginPage extends StatelessWidget {
                           alignment: Alignment.center,
                           child: SignInButton(
                             Buttons.GoogleDark,
-                            text: "VFDI - Hotmail",
+                            text: "VFDI - Registarse",
                             onPressed: () async {
                               registerUserVFDI(context);
                             },
