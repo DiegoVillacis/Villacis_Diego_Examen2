@@ -47,8 +47,9 @@ class LoginPage extends StatelessWidget {
                         ),
                         TextFormField(
                           controller: controller.passwordController,
+                          keyboardType: TextInputType.number,
                           inputFormatters: <TextInputFormatter>[
-                            FilteringTextInputFormatter.allow(RegExp(r'^(?=.[A-Za-z])(?=.\d)[A-Za-z\d]{8,}$')),
+                            FilteringTextInputFormatter.allow(RegExp(r'[0-9]')),
                           ],
                           decoration:
                               const InputDecoration(labelText: 'Password'),
@@ -57,6 +58,7 @@ class LoginPage extends StatelessWidget {
                               return 'Please enter some text or numbers';
                             return null;
                           },
+                          obscureText: true,
                         ),
                         Container(
                           padding: const EdgeInsets.only(top: 16.0),

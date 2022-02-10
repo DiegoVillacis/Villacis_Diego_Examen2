@@ -31,11 +31,11 @@ class RegisterLoginPage extends StatelessWidget {
                     TextFormField(
                       controller: _.passwordController,
                       keyboardType: TextInputType.text,
+                      decoration: const InputDecoration(labelText: 'Contraseña'),
                       inputFormatters: <TextInputFormatter>[
                         FilteringTextInputFormatter.allow(
-                          RegExp(r'^(?=.[a-z])(?=.[A-Z])(?=.\d)(?=.[@$!%?&])[A-Za-z\d@$!%?&]{8,10}$')),
+                          RegExp(r'^(?=.{10,}$)(?=(?:.*?[A-Z]){2})(?=.*?[a-z])(?=(?:.*?[0-9]){2}).*$')),
                       ],
-                      decoration: const InputDecoration(labelText: 'Password'),
                       validator: (String? value) {
                         if (value == null || value.isEmpty) {
                           return 'Please enter some text';
@@ -49,7 +49,7 @@ class RegisterLoginPage extends StatelessWidget {
                       controller: _.cedulaControllerVFDI,
                       decoration: const InputDecoration(labelText: 'Cedula'),
                       validator: (String? value) {
-                        if (value!.isEmpty) {
+                        if (value == "") {
                           return 'Please enter some text';
                         }
                         return null;
